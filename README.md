@@ -32,5 +32,5 @@ Moreover, I thought it would be fun to stray away from what tutorials offer and 
 - Background changing depending on the weather.
 - Slidable forecasts (got the idea from a tutorial).
 - Blur aesthetic.
-- Toggleable serach bar.
+- Toggleable search bar.
 - My own icons.
