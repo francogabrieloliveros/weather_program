@@ -1,0 +1,162 @@
+* {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1rem, 7vw, 2rem);
+}
+
+body {
+  margin: 0;
+  background-image: url(./images/cloudy.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100dvh;
+}
+
+img {
+  height: 2rem;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: rgba(0, 0, 0, 0.411);
+  border-radius: 1em;
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: clamp(340px, 60vw, 575px);
+}
+
+.header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.humidity,
+.description {
+  font-size: clamp(0.7rem, 4vw, 1rem);
+  margin: 0.2rem;
+}
+
+h1,
+.temperature {
+  font-weight: bold;
+}
+
+.temperature {
+  margin-top: 0.2em;
+}
+
+#emoji {
+  height: 2em;
+  margin-top: 0.5em;
+}
+
+#settings {
+  position: absolute;
+  top: 0.9em;
+  right: 0.8em;
+  height: 0.5em;
+  cursor: pointer;
+  transition: all 200ms;
+  user-select: none;
+}
+
+#settings:hover {
+  opacity: 50%;
+}
+
+#settings:active {
+  opacity: 100%;
+  transform: scale(120%);
+}
+
+.scrollable-container {
+  margin: 1em 0 0.8em 0;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: #0000001c #f1f1f100;
+}
+
+.scrollable-container div {
+  margin: 0 1em 0 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scrollable-container p {
+  font-size: clamp(0.5rem, 2vw, 0.6rem);
+  margin: 0.2em;
+}
+
+.scrollable-container img {
+  height: 1em;
+}
+
+.dropdown-container {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.342);
+  backdrop-filter: blur(5px);
+  padding: 0.5em;
+  border-radius: 0.2em;
+  width: 50%;
+  right: 0.7em;
+  top: 1.5em;
+
+  animation: fade 500ms;
+}
+
+#cityInput {
+  color: black;
+  font-size: clamp(0.5rem, 2vw, 0.6rem);
+  width: 100%;
+  accent-color: rgb(235, 193, 54);
+  border: none;
+  border-radius: 0.5em;
+}
+
+#submit {
+  all: unset;
+  font-size: clamp(0.4rem, 2vw, 0.6rem);
+  color: white;
+  background-color: rgb(235, 193, 54);
+  padding: 0.3em;
+  text-align: center;
+  border-radius: 0.2em;
+  margin-top: 1em;
+  user-select: none;
+  cursor: pointer;
+}
+
+#submit:hover {
+  opacity: 80%;
+}
+
+#submit:active {
+  opacity: 100%;
+  transform: scale(110%);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}

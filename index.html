@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather App</h1>
+      <img
+        src="./images/tripledot.png"
+        id="settings"
+        onclick="toggleDisplay('.dropdown-container')"
+      />
+      <form class="dropdown-container">
+        <input type="text" placeholder="Enter city." id="cityInput" />
+        <button type="submit" id="submit">Search City</button>
+      </form>
+    </div>
+
+    <script src="index.js" defer></script>
+  </body>
+</html>
