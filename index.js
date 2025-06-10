@@ -1,14 +1,20 @@
+// This program fetches weather data from an API and displays it
 const apiKey = "cd3ca636d5f9596dd505f404d59d101f";
 const body = document.querySelector("body");
 const container = document.querySelector(".container");
 const cityInput = document.querySelector("#cityInput");
 const weatherForm = document.querySelector(".dropdown-container");
 
+// display weather after user submit
 weatherForm.addEventListener("submit", async (event) => {
+    // prevent reload
     event.preventDefault();
 
+    // remove search bar
+    // print error when city does not exist
     toggleDisplay(".dropdown-container");
     try {
+        // ensure search bar is not empty
         if (cityInput.value) {
             const [weather, forecast] = await getData(cityInput.value);
 
@@ -22,6 +28,7 @@ weatherForm.addEventListener("submit", async (event) => {
     }
 });
 
+// return forecast and weather data as array
 async function getData(city) {
     const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
@@ -32,6 +39,7 @@ async function getData(city) {
 }
 
 async function displayData(weatherData, forecastData) {
+    // insert html when not exist
     if (!document.querySelector(".temperature")) {
         container.insertAdjacentHTML(
             "beforeend",
@@ -57,12 +65,15 @@ async function displayData(weatherData, forecastData) {
     const emojiDisplay = document.querySelector("#emoji");
     const forecastDisplay = document.querySelector(".scrollable-container");
 
+    // replace html content
     emojiDisplay.src = await getWeatherElements(id);
     cityDisplay.textContent = city;
     tempDisplay.textContent = `${(temp - 273.15).toFixed(1)}°C`;
     descDisplay.textContent = `${capitalizeFirst(description)}.`;
     humidityDisplay.textContent = `Humidity: ${humidity}%`;
 
+    // forecast in 3hr interval
+    // add each forecast as an html block with data
     forecastDisplay.innerHTML = "";
     const nextFewHours = forecastData.list.slice(0, 8);
     nextFewHours.forEach((forecast) => {
@@ -82,6 +93,7 @@ async function displayData(weatherData, forecastData) {
     });
 }
 
+// replace website background and return image address depending on weather id
 function getWeatherElements(weatherId) {
     if (weatherId >= 200 && weatherId < 300) {
         body.style.backgroundImage = "url(./images/rainy.png)";
