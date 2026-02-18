@@ -7,9 +7,9 @@ This is a weather program that displays details of a specific city in the world 
 
 ## Installation
 
-Try-out the website with this [link](https://francogabrieloliveros.github.io/weather_program/):
+Try-out the website with this [link](https://weather-program-steel.vercel.app/):
 
-    https://francogabrieloliveros.github.io/weather_program/
+    https://weather-program-steel.vercel.app/
 
 or clone the repository
 
